@@ -1,0 +1,24 @@
+package edu.cpt187.brown.exercise6;
+
+public class WriteOrder
+{
+	//constants
+	private boolean fileFoundFlag = flag;
+	private String masterFileName = "";
+	private int recordCount = 0;
+
+	//constructor
+	public WriteOrder(String borrowedFileName)
+	{
+
+	}//end constructor
+
+
+	//setter
+	public void setWriteOrder()
+	{
+
+	}
+
+
+}
