@@ -1,0 +1,103 @@
+package edu.cpt187.brown.exercise6;
+
+public class UserAccounts
+{
+	//constants
+	private final int NOT_FOUND = -1;
+	private final int RESET_VALUE = 0;
+	private final int MAXIMUM_RECORDS = 75;	
+
+	//non-constants
+	private String[] userNames = new String[MAXIMUM_RECORDS];
+	private String[] passwords = new String[MAXIMUM_RECORDS];
+	private String masterFileName = "";
+	private int recordCount = 0;
+	private int searchedIndex = 0;
+
+	//construct
+	public UserAccounts(String borrowedFileName)
+	{
+		UserAccounts userAccounts = borrowedFileName;
+	}//end construct
+
+	//set user account array
+	public void setUserAccountsArrays()
+	{
+
+	}
+
+	//set search index search index
+	public void setSearchedIndex(String borrowedUserName)
+	{
+		searchedIndex = getSeqSearch(borrowedUserName);
+	}//end set search
+
+	//set search index search index
+	public void setSearchIndex(String borrowedUserName, String borrowedPassword)
+	{
+		recordCount++;
+		if (searchedIndex >= RESET_VALUE && getPasswordMatch(borrowedPassword) == false)
+		{
+			searchedIndex = NOT_FOUND;
+		}//end if
+	}//end set search
+
+	//setWriteOne
+	public void setWriteOneRecord(String borrowedUserName, String borrowedPassword)
+	{
+
+	}
+
+	//get seq search
+	public int getSeqSearch(String borrowedBorrowedUserName)
+	{
+		int localIndex = 0;
+		userNames = NOT_FOUND;
+		while (localIndex < recordCount)
+		{
+			if (borrowedBorrowedUserName.equals(printSubjects[localIndex]))
+			{
+				userNames
+				= localIndex;
+				localIndex = recordCount;
+			}//end if
+			else
+			{
+				localIndex++;
+			}//end else
+		}//end while
+		return filesFound;
+	}//end set seq search
+	
+	//set password
+	public boolean getPasswordMatch(String borrowedBorrowedPassword)
+	{
+		
+	}
+
+	//get file name
+	public String getFileName()
+	{
+		return masterFileName;
+	}//end get file name
+
+	//get max records
+	public int getMaximumRecords()
+	{
+		return MAXIMUM_RECORDS;
+	}//end get max records
+	
+	//get record count
+	public int getRecordCount()
+	{
+		return recordCount;
+	}//end get record count
+	
+	//get search index
+	public int getSearchedIndex()
+	{
+		return searchedIndex;
+	}
+
+
+}
