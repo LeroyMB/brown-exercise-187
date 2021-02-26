@@ -1,0 +1,180 @@
+package edu.cpt187.brown.exercise6;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Random;
+import java.util.Scanner;
+
+public class Inventory
+{
+	//non constants
+	private final String[] DISCOUNT_NAMES = {"Member", "Senior", "No Discount"};
+	private final double[] DISCOUNT_RATES = {0.15, 0.25, 0.0};
+	private final String[] PRIZE_NAMES = {"YO-YO", "Fidget Spinner", "iPhone Case"};
+	private final int MAX_RECORDS = 35;
+	private final int NOT_FOUND = -1;
+	private final int ONE = 1;
+	private final int RESET_VALUE = 0;
+
+	//Constants
+	private int[] itemIDs = new int[MAX_RECORDS];
+	private String[] itemNames = new String[MAX_RECORDS];
+	private double[] itemPrices = new double[MAX_RECORDS];
+	private int[] orderQuantities = new int[MAX_RECORDS];
+	private double[] orderTotals = new double[MAX_RECORDS];
+	private int[] inStockCounts = new int[MAX_RECORDS];
+	private int itemSearchIndex = 0;
+	private int recordCount = 0;
+	private  Random prizeGenerator = new Random();
+
+	//constructor
+	public Inventory()
+	{
+
+	}//end constructor
+
+	//Setters
+	//set reduce stock
+	public void setReduceStock(int borrowedHowMany)
+	{
+		inStockCounts[itemSearchIndex] = borrowedHowMany - inStockCounts[itemSearchIndex];
+	}//end set ReduceStock
+
+	//set method load items
+	public void setLoadItems(String borrowedFileName)
+	{
+		try
+		{
+			Scanner infile = new Scanner(new FileInputStream(borrowedFileName));
+			int localIndex = RESET_VALUE;
+			while (infile.hasNext() == true && itemSearchIndex < MAX_RECORDS)
+			{
+				itemIDs [localIndex] = infile.nextInt();
+				itemNames [localIndex] = String.valueOf(infile.nextInt());
+				itemPrices [localIndex] = infile.nextDouble();
+				inStockCounts [localIndex] = infile.nextInt();
+				localIndex++;
+			}//end while
+			//close scanner
+			infile.close();
+		}//end try
+		catch (IOException ex)
+		{
+			int localIndex = NOT_FOUND;
+		}//end catch
+	}//end set load
+
+	//set load items
+	public void setLoadItems(String borrowedFileName, int borrowedSize)
+	{
+		try
+		{
+			Scanner infile = new Scanner(new FileInputStream(borrowedFileName));
+			int localIndex = RESET_VALUE;
+			while (infile.hasNext() == true && itemSearchIndex < MAX_RECORDS)
+			{
+				itemIDs [localIndex] = infile.nextInt();
+				itemNames [localIndex] = String.valueOf(infile.nextInt());
+				itemPrices [localIndex] = infile.nextDouble();
+				inStockCounts [localIndex] = infile.nextInt();
+				localIndex++;
+			}//end while
+			//close scanner
+			infile.close();
+		}//end try
+		catch (IOException ex)
+		{
+			int localIndex = NOT_FOUND;
+		}//end catch
+	}//end set load
+
+
+
+	//set search index search index
+	public void setSearchIndex(int borrowedID)
+	{
+		itemSearchIndex = borrowedID;
+	}//end set search index
+
+	//set bubble sort
+	public void setBubbleSort
+	{
+
+	}
+
+	//swap
+	
+	
+	//get
+		public int[] getInStockCounts()
+		{
+			return inStockCounts;
+		}//end get
+
+		//get item id
+		public int[] getItemIDs()
+		{
+			return itemIDs;
+		}
+
+		//get
+		public String[] getItemNames()
+		{
+			return itemNames;
+		}//end get 
+
+		//get
+		public String[] getDiscountNames()
+		{
+			return DISCOUNT_NAMES;
+		}//end get
+
+		//GET discount rates
+		public double[] getDiscountRates()
+		{
+			return DISCOUNT_RATES;
+		}//end get discount rates
+
+		//GET ORDER QUANTITIES
+		public int[] getOrderQuantities()
+		{
+			return orderQuantities;
+		}//end get order quantities
+		
+		//get orderTotals
+		public double[] getOrderTotals()
+		{
+			return orderTotals;
+		}//end get order totals
+		
+		//get prize names
+    	public String[] getPrizeNames()
+		{
+			return PRIZE_NAMES;
+		}//end getter prize
+
+		//get random number
+		public int getRandomNumber()
+		{
+			return prizeGenerator.nextInt(PRIZE_NAMES.length);
+		}//END get random number
+
+		//get max records
+		public int getMaxRecords()
+		{
+			return MAX_RECORDS;
+		}//end get max records
+
+		//get record count
+		public int getRecordCount()
+		{
+			return recordCount;
+		}//end get record count
+		
+		//get grand total
+		public double getGrandTotal()
+		{
+			return grandTotal;
+		}//end grand total
+		
+}
